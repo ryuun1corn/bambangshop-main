@@ -63,12 +63,12 @@ You can install Postman via this website: https://www.postman.com/downloads/
   - [x] Commit: `Implement delete function in Subscriber repository.`
   - [x] Write answers of your learning module's "Reflection Publisher-1" questions in this README.
 - **STAGE 2: Implement services and controllers**
-  - [ ] Commit: `Create Notification service struct skeleton.`
-  - [ ] Commit: `Implement subscribe function in Notification service.`
-  - [ ] Commit: `Implement subscribe function in Notification controller.`
-  - [ ] Commit: `Implement unsubscribe function in Notification service.`
-  - [ ] Commit: `Implement unsubscribe function in Notification controller.`
-  - [ ] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
+  - [x] Commit: `Create Notification service struct skeleton.`
+  - [x] Commit: `Implement subscribe function in Notification service.`
+  - [x] Commit: `Implement subscribe function in Notification controller.`
+  - [x] Commit: `Implement unsubscribe function in Notification service.`
+  - [x] Commit: `Implement unsubscribe function in Notification controller.`
+  - [x] Write answers of your learning module's "Reflection Publisher-2" questions in this README.
 - **STAGE 3: Implement notification mechanism**
   - [ ] Commit: `Implement update method in Subscriber model to send notification HTTP requests.`
   - [ ] Commit: `Implement notify function in Notification service to notify each Subscriber.`
@@ -97,5 +97,17 @@ Penggunaan DashMap lebih tepat dibandingkan Vec karena DashMap memungkinkan akse
 Karena SUBSCRIBERS adalah variabel statis yang digunakan secara global dan harus thread-safe, maka penggunaan DashMap tetap lebih tepat dibandingkan hanya mengandalkan pola Singleton. DashMap sudah didesain sebagai concurrent HashMap, memungkinkan multiple threads untuk membaca dan menulis tanpa perlu mengelola mutex secara manual.
 
 #### Reflection Publisher-2
+
+> 1. In the Model-View Controller (MVC) compound pattern, there is no “Service” and “Repository”. Model in MVC covers both data storage and business logic. Explain based on your understanding of design principles, why we need to separate “Service” and “Repository” from a Model?
+
+Dalam praktik pengembangan modern, memisahkan Service dan Repository dari Model mengikuti prinsip Separation of Concerns (SoC) dan Single Responsibility Principle (SRP), yang membuat kode lebih modular, mudah diuji, dan dipelihara. Model dalam MVC klasik memang mencakup logika bisnis dan akses data, tetapi dalam skala aplikasi yang lebih besar, ini menyebabkan tight coupling dan sulitnya melakukan perubahan tanpa memengaruhi banyak bagian sistem.
+
+> 2. What happens if we only use the Model? Explain your imagination on how the interactions between each model (Program, Subscriber, Notification) affect the code complexity for each model?
+
+Jika kita hanya menggunakan Model tanpa memisahkan Service dan Repository, maka setiap Model akan menangani akses data dan logika bisnis secara langsung, yang menyebabkan tight coupling antar model dan meningkatnya kompleksitas kode. Misalnya, dalam konteks Program, Subscriber, dan Notification, jika Program perlu mengirim notifikasi ke semua Subscriber, maka Program harus langsung mengakses dan memproses data dari Subscriber dan Notification, membuat setiap model saling bergantung. Hal ini memperumit pemeliharaan, karena perubahan pada satu model bisa berdampak pada banyak bagian lain.
+
+> 3. Have you explored more about Postman? Tell us how this tool helps you to test your current work. You might want to also list which features in Postman you are interested in or feel like it is helpful to help your Group Project or any of your future software engineering projects.
+
+Ya, saya sudah mencoba eksplorasi lebih lanjut terkait penggunaan Postman. Menurut saya, Postman sangat membantu untuk testing endpoint yang terdapat pada proyek sekarang dengan mempersiapkan URL dengan methodnya yang sudah jadi dan hanya perlu menekan satu tombol untuk melakukan testing terhadap suatu endpoint. Fitur inilah yang sangat benefisial terutama untuk Group Project.
 
 #### Reflection Publisher-3

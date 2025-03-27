@@ -1,4 +1,4 @@
-use crate::model::subscriber::{self, Subscriber};
+use crate::model::subscriber::Subscriber;
 use dashmap::DashMap;
 use lazy_static::lazy_static;
 

@@ -111,3 +111,15 @@ Jika kita hanya menggunakan Model tanpa memisahkan Service dan Repository, maka 
 Ya, saya sudah mencoba eksplorasi lebih lanjut terkait penggunaan Postman. Menurut saya, Postman sangat membantu untuk testing endpoint yang terdapat pada proyek sekarang dengan mempersiapkan URL dengan methodnya yang sudah jadi dan hanya perlu menekan satu tombol untuk melakukan testing terhadap suatu endpoint. Fitur inilah yang sangat benefisial terutama untuk Group Project.
 
 #### Reflection Publisher-3
+
+> 1. Observer Pattern has two variations: Push model (publisher pushes data to subscribers) and Pull model (subscribers pull data from publisher). In this tutorial case, which variation of Observer Pattern that we use?
+
+Variasi yang digunakan pada tutorial ini adalah push model, yaitu model dimana publisher melakukan push data ke banyak subscriber. Fungsionalitas ini dapat dilihat pada method `notify` dari struct `NotificationService` yang akan memanggil method `update` dari setiap subscribernya untuk melakukan push data.
+
+> 2. What are the advantages and disadvantages of using the other variation of Observer Pattern for this tutorial case? (example: if you answer Q1 with Push, then imagine if we used Pull)
+
+Observer dengan pull model memiliki keunggulan dalam fleksibilitas karena observer dapat mengambil data sesuai kebutuhan, mengurangi ketergantungan antara subject dan observer, serta lebih efisien dalam menangani banyak observer. Namun, kelemahannya adalah potensi inefisiensi akibat polling berlebihan, kompleksitas lebih tinggi karena observer harus tahu data yang dibutuhkan, pembaruan yang bisa tertunda, dan beban tambahan jika perubahan terjadi terlalu sering.
+
+> 3. Explain what will happen to the program if we decide to not use multi-threading in the notification process.
+
+Jika tidak menggunakan multi-threading pada proses notifikasi, maka server akan menghabiskan lebih banyak waktunya untuk iterasi setiap subscribernya. Hal ini menjadi lebih bermasalah apabila terdapat banyak subscriber karena waktu yang digunakan oleh server untuk memproses seluruh subscriber tersebut akan lebih lama lagi.
